@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data Binding - Vue</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+
+  <div id="app">
+    
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/vue-basics/">
+          <img src="https://vuejs.org/images/logo.png" alt="Logo">
+          Data Binding
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      Con el data binding nos permite enlazar datos de nuestra vista al código o viceversa. Quiere decir que cada cambio se verá reflejado de manera inmediata ya sea en código o la vista.
+ 
+      <p class="title">v-model</p>
+      <p>Es una directiva que nos permite enlazar a nuestor modelos los datos dentro de las etiquetas input, textarea y select.</p>
+      <div class="field">
+        <div class="control">
+          <input class="input is-primary" type="text" placeholder="Nombre (model)" v-model="name">
+        </div>
+      </div>
+      <p>
+        <b>model:</b> {{ name }}
+      </p>
+      <p class="title">v-bind</p>
+      <p>
+        Nos permite enlazar cualquier atributo HTML con cualquiera de las propiedades de nuestro v-model.
+      </p>
+      <p>
+        <a class="button is-info" v-bind:href="url" target="_blank">@didiersa</a>
+      </p>
+      <p>
+        El anterior botón contiene un atributo que esta bindeado, es decir que el valor del href tiene enlazdo un modelo y lo se lo pasa al href por este medio <em>v-bind:href</em>. Una manera de dejarlo implicítamente es dejar solamente <em>:href</em> (shorthand).
+      </p>
+    </div>
+          
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    let app = new Vue({
+      el: '#app',
+      data: {
+        name: '',
+        url: 'https://twitter.com/didiersa'
+      }
+    })
+
+  </script>
+</body>
+</html>
