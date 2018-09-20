@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Directivas - Vue</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+
+  <div id="app">
+    
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="https://vuejs.org/images/logo.png" alt="Logo">
+          Directivas
+        </a>
+      </div>
+    </nav>
+
+    <ul class="container">
+      Las directivas son atributos que se pueden agregar a los elementos html, que nos sirven para aplicar transformaciones para los mismos elementos.
+
+      <p class="title">v-show</p>
+      <p>
+        <a class="button is-primary" v-on:click="showParagraph">Mostrar/Ocultar párrafo</a>
+      </p>
+      <p v-show="showValue">
+        {{ paragraph }}
+      </p>
+
+      <p class="title">v-if</p>
+      <p>
+        <a class="button is-primary" v-on:click="addParagraph">Agregar/Eliminar párrafo</a>
+      </p>
+      <p v-if="addValue">
+        {{ paragraph2 }}
+      </p>
+      <div v-else>
+        <p class="title">v-else</p>
+        <p>
+          {{ paragraph3 }}
+        </p>
+      </div>
+      <small>
+        Nota: También podemos utlizar <em>v-else-if</em> y colocar otra condición para que se muestre este último párrafo.
+      </small>
+      <p class="title">v-for</p>
+      <p>
+        Recorre una colección de datos. Debajo tenemos un ejemplo usando el v-for (v-for="i in items"):
+      </p>
+      <ul v-for="i in items">
+        <li>{{ i }}</li>
+      </ul>
+
+    </div>
+          
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    let app = new Vue({
+      el: '#app',
+      data: {
+        title: 'Vue',
+        showValue: true,
+        paragraph: 'Esto es un párrafo que se oculta y muestra de acuerdo con el clic del botón, pero me mantengo en el DOM.',
+        addValue: true,
+        paragraph2: 'Esto es un párrafo que se agrega y eliminar directamente del DOM de acuerdo con el clic del botón.',
+        paragraph3: 'Este párrafo se muestra de acuerdo a la condición del v-if no se cumple, por defecto mostrará este.',
+        items: [ 1, 2, 3, 4, 5 ]
+      },
+      methods: {
+        showParagraph() {
+          this.showValue = !this.showValue;
+        },
+
+        addParagraph() {
+          this.addValue = !this.addValue;
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>

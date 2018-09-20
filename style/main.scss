@@ -1,0 +1,17 @@
+@import "./variables";
+
+.container {
+  padding: 15px;
+}
+
+.navbar-brand {
+  .navbar-item {
+    img {
+      margin-right: 15px;
+    }
+  }
+}
+
+p {
+  margin: 20px auto;
+}
